@@ -15,4 +15,12 @@
 - 🐛 [Report an issue](https://github.com/Yuvi-development/PlayGround/issues).
 - 👤 [Explore the creator's projects](https://go.ondev.store/Yuvi-development).
 - 🌍 [Create with OMGithub](https://go.ondev.store/).
+
+## LAST LIGHT — Island Ops
+
+A standalone, mobile-friendly 3D battle-royale-inspired survival game. Open `index.html` in a modern browser or serve this folder over HTTP; Three.js is loaded from jsDelivr.
+
+- **Desktop:** WASD / arrow keys to move, mouse to aim, click to fire, Shift to sprint, Space to jump, R to reload, E for a medkit, G for a grenade.
+- **Phone/tablet:** left virtual stick to move, drag the scene to look, and use the on-screen action buttons.
+- Eliminate the five AI hostiles and stay inside the shrinking safe zone to win.
 <!-- omgithub:readme:end -->
