@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#101a20" />
+  <title>LAST SIGNAL — Outland Survival</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main id="game-shell">
+    <canvas id="game"></canvas>
+    <div class="vignette"></div>
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark">LS</span><div><b>LAST SIGNAL</b><small>OUTLAND SURVIVAL</small></div></div>
+      <div class="match-info"><span class="live-dot"></span><span id="match-state">DEPLOYMENT IN PROGRESS</span><i></i><span id="clock">00:00</span></div>
+      <button id="sound-btn" class="icon-btn" aria-label="Toggle sound">♫ <span>SOUND ON</span></button>
+    </header>
+
+    <section class="hud" id="hud" hidden>
+      <div class="left-hud">
+        <div class="status-card"><div class="status-top"><span>VITALS</span><span id="health-value">100</span></div><div class="meter"><div id="health-bar" class="meter-fill health-fill"></div></div><div class="armor-row"><span>ARMOR</span><div class="meter armor-meter"><div id="armor-bar" class="meter-fill armor-fill"></div></div><b id="armor-value">50</b></div></div>
+        <div class="objective"><div class="obj-icon">⌖</div><div><small>LIVE OBJECTIVE</small><b id="objective-text">Reach the safe zone</b></div></div>
+      </div>
+      <div class="center-hud"><div id="zone-alert" class="zone-alert">SAFE ZONE IS SHRINKING</div><div class="reticle"><i></i><i></i><i></i><i></i><b></b></div><div id="pickup-prompt" class="pickup-prompt" hidden>PRESS <b>F</b> TO PICK UP <span id="pickup-name">SUPPLIES</span></div><div id="hit-marker" class="hit-marker">×</div></div>
+      <div class="right-hud">
+        <div class="map-card"><canvas id="minimap" width="168" height="168"></canvas><div class="map-label">NORTH RIDGE <span>• LIVE</span></div></div>
+        <div class="survivors"><span class="survivor-icon">♟</span><div><b id="alive-count">10</b><small>STILL ALIVE</small></div><i></i><div><b id="kill-count">0</b><small>ELIMINATIONS</small></div></div>
+      </div>
+      <div class="bottom-hud">
+        <div class="weapon-card"><div class="weapon-icon">⌁</div><div class="weapon-name"><small>FIELD ISSUE</small><b>RANGER <span>·</span> AR</b></div><div class="ammo"><b id="ammo-count">24</b><span>/ <i id="reserve-count">72</i></span></div><div class="reload-indicator" id="reload-indicator">RELOADING</div></div>
+        <div class="controls-hint"><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> MOVE <span>·</span> <kbd>CLICK</kbd> FIRE <span>·</span> <kbd>R</kbd> RELOAD <span>·</span> <kbd>F</kbd> LOOT</div>
+      </div>
+      <div class="damage-flash" id="damage-flash"></div>
+    </section>
+
+    <div class="screen" id="intro-screen">
+      <div class="intro-copy"><div class="eyebrow"><span></span> ISLAND SECTOR 07 — 2049</div><h1>THE SIGNAL<br><em>GOES DARK.</em></h1><p>One island. A closing storm. No backup coming.<br>Find gear, outlast the other runners, and make it to extraction.</p><div class="intro-stats"><div><b>10</b><small>RUNNERS</small></div><i></i><div><b>01</b><small>LAST STANDING</small></div><i></i><div><b>∞</b><small>WAYS OUT</small></div></div><button id="deploy-btn" class="primary-btn"><span>DEPLOY TO ISLAND</span><b>→</b></button><div class="intro-foot">SOLO SURVIVAL <span>•</span> ORIGINAL OUTLANDS EXPERIENCE</div></div>
+      <div class="intro-side"><div class="side-line"></div><span>FIELD NOTES&nbsp; / &nbsp;01</span><b>DON'T<br>TRUST THE<br>HORIZON.</b><small>THE STORM MOVES FASTER<br>THAN YOU THINK.</small></div>
+    </div>
+
+    <div id="end-screen" class="screen end-screen" hidden><div class="end-card"><div class="eyebrow" id="end-eyebrow">RUN COMPLETE</div><h2 id="end-title">SIGNAL<br><em>SECURED.</em></h2><p id="end-copy">You made it out of the Outlands.</p><div class="result-stats"><div><small>ELIMINATIONS</small><b id="result-kills">0</b></div><div><small>SURVIVAL TIME</small><b id="result-time">00:00</b></div></div><button id="again-btn" class="primary-btn"><span>DROP AGAIN</span><b>↻</b></button></div></div>
+
+    <div class="toast" id="toast"></div>
+    <div class="mobile-controls" id="mobile-controls" hidden><div class="stick-zone" id="stick-zone"><div class="stick-base"><div id="stick-knob"></div></div></div><div class="mobile-actions"><button id="mobile-reload">↻<small>RELOAD</small></button><button id="mobile-pickup">＋<small>LOOT</small></button><button id="mobile-fire">◎<small>FIRE</small></button></div><div class="look-hint">DRAG TO LOOK</div></div>
+    <div class="pause-tag" id="pause-tag" hidden>CLICK TO RESUME <span>ESC</span></div>
+  </main>
+  <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js"}}</script>
+  <script type="module" src="game.js"></script>
+</body>
+</html>
